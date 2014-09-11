@@ -32,7 +32,7 @@ override_attributes(
 					"host" => "localhost",
 					"database" => "app",
 					"username" => "root",
-					"password" => "app"
+					"password" => "root"
 				}
 			}
 		}

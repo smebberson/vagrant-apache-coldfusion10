@@ -1,0 +1,57 @@
+[submodule "chef/cookbooks/logrotate"]
+	path = chef/cookbooks/logrotate
+	url = https://github.com/stevendanna/logrotate.git
+[submodule "chef/cookbooks/pacman"]
+	path = chef/cookbooks/pacman
+	url = https://github.com/jesseadams/pacman.git
+[submodule "chef/cookbooks/iptables"]
+	path = chef/cookbooks/iptables
+	url = https://github.com/opscode-cookbooks/iptables.git
+[submodule "chef/cookbooks/apt"]
+	path = chef/cookbooks/apt
+	url = https://github.com/opscode-cookbooks/apt.git
+[submodule "chef/cookbooks/apache2"]
+	path = chef/cookbooks/apache2
+	url = https://github.com/onehealth-cookbooks/apache2.git
+[submodule "chef/cookbooks/mysql"]
+	path = chef/cookbooks/mysql
+	url = https://github.com/opscode-cookbooks/mysql.git
+[submodule "chef/cookbooks/yum-mysql-community"]
+	path = chef/cookbooks/yum-mysql-community
+	url = https://github.com/opscode-cookbooks/yum-mysql-community.git
+[submodule "chef/cookbooks/yum"]
+	path = chef/cookbooks/yum
+	url = https://github.com/opscode-cookbooks/yum.git
+[submodule "chef/cookbooks/sudo"]
+	path = chef/cookbooks/sudo
+	url = https://github.com/opscode-cookbooks/sudo.git
+[submodule "chef/cookbooks/java"]
+	path = chef/cookbooks/java
+	url = https://github.com/agileorbit-cookbooks/java.git
+[submodule "chef/cookbooks/coldfusion10"]
+	path = chef/cookbooks/coldfusion10
+	url = https://github.com/wharton/chef-coldfusion10.git
+[submodule "chef/cookbooks/build-essential"]
+	path = chef/cookbooks/build-essential
+	url = https://github.com/opscode-cookbooks/build-essential.git
+[submodule "chef/cookbooks/mysql-chef_gem"]
+	path = chef/cookbooks/mysql-chef_gem
+	url = https://github.com/opscode-cookbooks/mysql-chef_gem.git
+[submodule "chef/cookbooks/database"]
+	path = chef/cookbooks/database
+	url = https://github.com/opscode-cookbooks/database.git
+[submodule "chef/cookbooks/aws"]
+	path = chef/cookbooks/aws
+	url = https://github.com/opscode-cookbooks/aws.git
+[submodule "chef/cookbooks/postgresql"]
+	path = chef/cookbooks/postgresql
+	url = https://github.com/hw-cookbooks/postgresql.git
+[submodule "chef/cookbooks/openssl"]
+	path = chef/cookbooks/openssl
+	url = https://github.com/opscode-cookbooks/openssl.git
+[submodule "chef/cookbooks/chef-sugar"]
+	path = chef/cookbooks/chef-sugar
+	url = https://github.com/sethvargo/chef-sugar.git
+[submodule "chef/cookbooks/xfs"]
+	path = chef/cookbooks/xfs
+	url = https://github.com/opscode-cookbooks/xfs.git

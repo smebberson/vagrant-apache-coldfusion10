@@ -1,0 +1,85 @@
+<VirtualHost *:<%= @params[:server_port] || node['apache']['listen_ports'].first %>>
+  ServerName <%= @params[:server_name] %>
+  <% if @params[:server_aliases] -%>
+  ServerAlias <%= @params[:server_aliases].join " " %>
+  <% end -%>
+  DocumentRoot <%= @params[:docroot] %>
+
+  <Directory <%= @params[:docroot] %>>
+    Options <%= [@params[:directory_options] || "FollowSymLinks" ].flatten.join " " %>
+    AllowOverride <%= [@params[:allow_override] || "None" ].flatten.join " " %>
+  <% if node['apache']['version'] == '2.4' -%>
+    Require all granted
+  <% else -%>
+    Order allow,deny
+    Allow from all
+  <% end -%>
+  </Directory>
+
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+
+  <Directory <%= node['cf10']['webroot'] %>>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride FileInfo Options
+    Order allow,deny
+    Allow from all
+    # This directive allows us to have apache2's default start page
+    # in /apache2-default/, but still have / go to the right place
+    #RedirectMatch ^/$ /apache2-default/
+  </Directory>
+
+  <Location /server-status>
+    SetHandler server-status
+
+  <% if node['apache']['version'] == '2.4' -%>
+    Require local
+  <% else -%>
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+  <% end -%>
+
+  </Location>
+
+  Alias /CFIDE "<%= node['cf10']['installer']['install_folder'] %>/cfusion/wwwroot/CFIDE"
+  Alias /cfide "<%= node['cf10']['installer']['install_folder'] %>/cfusion/wwwroot/CFIDE"
+
+  <Directory "<%= node['cf10']['installer']['install_folder']%>/cfusion/wwwroot/CFIDE">
+      Options Indexes MultiViews
+      AllowOverride None
+      Order allow,deny
+      Allow from all
+  </Directory>
+
+  <IfModule mod_jk.c>
+    # Get ColdFusion JkMount settings
+    JkMountCopy On
+  </IfModule>
+
+  DirectoryIndex index.cfm index.html index.cgi index.pl index.php index.xhtml index.htm
+
+  RewriteEngine On
+  <%- if node['apache']['version'] == '2.4' -%>
+  LogLevel info rewrite:trace1
+  <%- else -%>
+  LogLevel info
+  RewriteLog <%= node['apache']['log_dir'] %>/<%= @application_name %>-rewrite.log
+  RewriteLogLevel 0
+  <%- end -%>
+
+  ErrorLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>-error.log
+  CustomLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>-access.log combined
+
+  <% if @params[:directory_index] -%>
+  DirectoryIndex <%= [@params[:directory_index]].flatten.join " " %>
+  <% end -%>
+
+  # Canonical host, <%= @params[:server_name] %>
+  # RewriteCond %{HTTP_HOST}   !^<%= @params[:server_name] %> [NC]
+  # RewriteCond %{HTTP_HOST}   !^$
+  # RewriteRule ^/(.*)$        http://<%= @params[:server_name] %>/$1 [L,R=301]
+
+</VirtualHost>

@@ -21,7 +21,7 @@ What you get
 Getting started
 ---------------
 
-Before anything else, you need to go and [grab the ColdFusion 10 installer file](https://www.copy.com/s/nhIbHZYZnmPN/ColdFusion%20Repo/10.0.0/ColdFusion_10_WWEJ_linux64.bin):
+Before anything else, you need to go and [grab the ColdFusion 10 installer file](https://e05ac1a30afa93e642cc134035af0ab2babf7ac5.googledrive.com/host/0B-P1-Q_5RyjoMHZ2ZEtieXZjZG8/AdobeColdFusion/10.0.0/ColdFusion_10_WWEJ_linux64.bin):
 
 Once you have that you can get started:
 

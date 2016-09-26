@@ -30,7 +30,7 @@ Once you have that you can get started:
 - Copy the ColdFusion 1- installer file into `./chef/cookbooks/coldfusion10/files/default/`
 - (with Vagrant installed of course) execute `vagrant up`
 - Wait for the install to finish
-- Visit http://192.168.32.10/ in your browser and you should see a ColdFusion dump of the `server` scope
+- Visit http://192.168.99.10/ in your browser and you should see a ColdFusion dump of the `server` scope
 - The default password for the coldfusion administrator is 'vagrant'.
 
 Customisation
